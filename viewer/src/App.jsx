@@ -20,7 +20,8 @@ export default function App() {
   const [hoverInfo, setHoverInfo] = useState(null);
 
   useEffect(() => {
-    fetch("/data/ttc_tracks.geojson")
+    const url = `${import.meta.env.BASE_URL}data/ttc_tracks.geojson`;
+    fetch(url)
       .then((r) => r.json())
       .then(setData)
       .catch((err) => console.error("Failed to load GeoJSON:", err));
